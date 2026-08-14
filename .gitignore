@@ -1,10 +1,26 @@
-# Python-generated files
+# Environments & secrets
+.venv/
+.env
+.env.*
+*.log
+
+# Python cache & tools
 __pycache__/
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
+.python-version
+uv.lock
+pyproject.toml
+main.py
+raw_data.txt
+src/
 
-# Virtual environments
-.venv
+# Internal config & local folders
+.antigravity_rules
+01-Contracts/
+02-Assets/
+03-Code/
+Tac_Nghiep_Telesales_USU.xlsx
