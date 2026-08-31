@@ -161,7 +161,7 @@ const AGRIZEN_DATA = {
         "weakness": "Dễ bị bốc hơi và rửa trôi khi mưa, nắng gắt dễ gây cháy mép lá đòng, xót rễ non, dùng nhiều gây chua đất.",
         "ourEdge": "Hữu cơ Mỹ đóng lon thiếc, hấp thu qua lá cực nhanh, mát cây 100%, an toàn cho đòng non và rễ tơ."
       },
-      "usageRate": "Pha 33ml / bình 25L (Quy chuẩn 1 bình xịt 1 công 1.000m² -> 1 lon 1L pha đúng 30 bình 25L, xịt 30 công ~ 3 ha). Bay Drone: 1L bay 3 ha (30 công)."
+      "usageRate": "Pha 25 - 35ml / bình 25L (Ước lượng 1 lon 1L pha 30 - 35 bình 25L, xịt cho 30 công 1.000m² ~ 3 ha). Bay Drone: 1L bay 3 ha (30 công)."
     },
     {
       "id": "vo-gao",
@@ -235,7 +235,7 @@ const AGRIZEN_DATA = {
         "weakness": "Gây cháy chóp lá đòng khi nắng gắt, làm lá rụi sớm khiến lúa bị lép lửng, hạt lúa xốp dễ ngót ký khi phơi sấy.",
         "ourEdge": "Dạng PK Kali sữa hữu cơ mát cây, dẫn truyền tinh bột êm ái, giữ lá đòng xanh mướt đến khi gặt, gạo chắc nặng ký."
       },
-      "usageRate": "Pha 33ml / bình 25L (Quy chuẩn 1 bình xịt 1 công 1.000m² -> 1 lon 1L pha đúng 30 bình 25L, xịt 30 công ~ 3 ha). Bay Drone: 1L bay 3 ha (30 công)."
+      "usageRate": "Pha 25 - 35ml / bình 25L (Ước lượng 1 lon 1L pha 30 - 35 bình 25L, xịt cho 30 công 1.000m² ~ 3 ha). Bay Drone: 1L bay 3 ha (30 công)."
     },
     {
       "id": "mix-combi",
@@ -360,7 +360,7 @@ const AGRIZEN_DATA = {
   "scriptVG": {
     "title": "BẢNG KỊCH BẢN TƯ VẤN 5 BƯỚC - ZAKi RƯỚC ĐÒNG & VÔ GẠO",
     "notes": [
-      "1. CHUẨN LIỀU PHA: 1 Lon thiếc 1L dùng cho 30 CÔNG (1.000m²) ~ 3 Héc-ta (30.000m²). Quy chuẩn 1 bình 25L xịt 1 công 1.000m² -> Pha 33ml/bình 25L (1 lon pha đúng 30 bình). Drone: 1 lon bay 3 ha (30 công).",
+      "1. CHUẨN LIỀU PHA: 1 Lon thiếc 1L dùng cho 30 CÔNG (1.000m²) ~ 3 Héc-ta (30.000m²). Pha bình 25L: 25 - 35ml/bình 25L (Ước lượng 1 lon pha 30 - 35 bình 25L). Drone: 1 lon bay 3 ha (30 công).",
       "2. HIỆU QUẢ CỐT LÕI: Hữu cơ 100% nhập Mỹ ăn qua lá 95% sau 2-4h, mát cây không cháy lá đòng, ngắt ngộ độc rơm rạ sau 3 ngày, đòng to mập, trổ rộ, vô gạo chắc tới cậy -> Tiết kiệm 30-40% phân NPK rải gốc.",
       "3. NGUYÊN TẮC BÁN COMBO LỚN: Luôn chào Combo Mua 3 Tặng 1 trước (3 Cặp Tặng 1 Cặp = 8 lon 1L giá 2.854.200đ, hoặc 3 Lon Tặng 1 Lon = 4 lon 1L) -> Tiết kiệm 1,4 triệu + Tặng Mix Combi Ba Lan & Loang Trải Luke. Tuyệt đối không chào lẻ 1 lon!"
     ],
@@ -369,42 +369,42 @@ const AGRIZEN_DATA = {
         "step": "Bước 1",
         "stage": "Tư Vấn Khai Thác Thông Tin & Đánh Vào Nhu Cầu Ruộng Lúa\n\n(Mở Đầu Cuộc Gọi)",
         "guidance": "• ĐÁNH VÀO NHU CẦU CÓ SẴN: Khách để lại SĐT -> Đang cần dưỡng lúa, kích rễ, nuôi đòng hoặc thúc vô gạo chắc cậy.\n\n• KHÔNG NÓI VÒNG VO: Xưng Con/Em gọi Chú/Anh. Đi thẳng 5 câu hỏi cốt lõi lấy thông số trong 30 giây:\n1. Giống lúa gì (OM18, OM5451, DT8, ST25...)\n2. Diện tích mấy công 1.000m² / mấy mẫu\n3. Lúa bữa nay mấy ngày tuổi rồi\n4. Rễ có bị đen/ngộ độc rơm rạ, xì phèn không?\n5. Đã rải phân gốc đợt mấy / xịt cử nào chưa?\n\n• SO SÁNH: Phân NPK rải gốc nhiều dễ xót rễ, vống lá, cháy chóp lá đòng. Xài ZAKi Mỹ ăn qua lá mát rượi, rễ bung trắng phau, tiết kiệm cả bao phân rải gốc.",
-        "handling": "1. KHÁCH HỢP TÁC: Ghi nhanh 5 thông số -> Tính số ngày còn lại tới gặt -> Bắt đúng 1 trong 6 cử ở Bước 2 để tư vấn đúng tim đen.\n\n2. ⚠️ KHÁCH GẮT GỎNG / ĐÒI GIÁ NGAY:\n-> KHÔNG ĐƯỢC HỎI DỒN! Nói ngay câu giải tỏa: \"Dạ chú yên tâm, tính ra chi phí xài phân Mỹ chỉ có ~11k - 15k cho 1 công 1.000m² thôi chú ơi!\" -> Chuyển ngay sang Bước 2.\n\n👉 LIỀU DÙNG:\n• 1 Lon thiếc 1L = 30 công 1.000m² ~ 3 ha.\n• Quy chuẩn: 1 bình 25L xịt 1 công 1.000m² -> Pha 33ml/bình 25L (1 lon pha đúng 30 bình = 30 công)."
+        "handling": "1. KHÁCH HỢP TÁC: Ghi nhanh 5 thông số -> Tính số ngày còn lại tới gặt -> Bắt đúng 1 trong 6 cử ở Bước 2 để tư vấn đúng tim đen.\n\n2. ⚠️ KHÁCH GẮT GỎNG / ĐÒI GIÁ NGAY:\n-> KHÔNG ĐƯỢC HỎI DỒN! Nói ngay câu giải tỏa: \"Dạ chú yên tâm, tính ra chi phí xài phân Mỹ chỉ có ~11k - 15k cho 1 công 1.000m² thôi chú ơi!\" -> Chuyển ngay sang Bước 2.\n\n👉 LIỀU DÙNG:\n• 1 Lon thiếc 1L = 30 công 1.000m² ~ 3 ha.\n• Bình 25L: Pha 25 - 35ml/bình 25L (Ước lượng 1 lon pha 30 - 35 bình = 30 công)."
       },
       {
         "step": "Bước 2",
         "stage": "Cử 1: Đẻ Nhánh / Nở Bụi\n\n(15 - 30 ngày tuổi)\n\n🌾 SP: ZAKi RƯỚC ĐÒNG 1L",
-        "guidance": "• SINH LÝ LÚA 15-30 NGÀY: Rễ tơ đang bộc phát, đẻ chồi con. Dễ bị ngộ độc rơm rạ mục chèn rễ hoặc xì phèn chua (Fe2+, Al3+) làm nghẹt rễ đen thui, vàng lá chân, lúa ốm cọng.\n\n• CƠ CHẾ ZAKi RƯỚC ĐÒNG: Fulvic Acid 18% Mỹ giải độc rơm rạ sau 3 ngày, kích rễ tơ bung trắng phau dán chặt đất, đẻ nhánh rộ, cọng mập ú bóp không dẹp.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Quy chuẩn 1 bình 25L / 1 công 1.000m² -> Pha 33ml/bình 25L, 1 lon pha 30 bình). Drone bay 3 ha.",
+        "guidance": "• SINH LÝ LÚA 15-30 NGÀY: Rễ tơ đang bộc phát, đẻ chồi con. Dễ bị ngộ độc rơm rạ mục chèn rễ hoặc xì phèn chua (Fe2+, Al3+) làm nghẹt rễ đen thui, vàng lá chân, lúa ốm cọng.\n\n• CƠ CHẾ ZAKi RƯỚC ĐÒNG: Fulvic Acid 18% Mỹ giải độc rơm rạ sau 3 ngày, kích rễ tơ bung trắng phau dán chặt đất, đẻ nhánh rộ, cọng mập ú bóp không dẹp.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Pha 25 - 35ml/bình 25L, ước lượng 1 lon pha 30 - 35 bình). Drone bay 3 ha.",
         "handling": "• XOÁY NỖI ĐAU: Rễ nghẹt đen thui rải phân NPK lúa không ăn được, lãng phí 40% tiền phân.\n\n• HƯỚNG BỘ COMBO: Lúa 20 ngày còn đủ 6 cử tới gặt -> Ép chốt Combo 3 Cặp Tặng 1 Cặp (8 lon 1L) xài trọn mùa vụ."
       },
       {
         "step": "Bước 2",
         "stage": "Cử 2: Làm Đòng / Tim Đèn\n\n(30 - 45 ngày tuổi)\n\n🌾 SP: ZAKi RƯỚC ĐÒNG 1L",
-        "guidance": "• SINH LÝ LÚA 30-45 NGÀY: Lúa dừng đẻ nhánh, xé bẹ thấy nhú tim đèn 1-2mm. Giai đoạn này QUYẾT ĐỊNH 40% NĂNG SUẤT VỤ LÚA (phân hóa mầm hoa tạo nhánh gié).\n\n• CƠ CHẾ ZAKi RƯỚC ĐÒNG: Amino hữu cơ nuôi tim đèn mập ú, TĂNG TỪ 8-10 GIÉ LÊN 12-16 GIÉ PHỤ/BÔNG, bộ khung bông dài ngoẵng nhiều hạt.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Quy chuẩn 1 bình 25L / 1 công 1.000m² -> Pha 33ml/bình 25L, 1 lon pha 30 bình). Drone bay 3 ha.",
+        "guidance": "• SINH LÝ LÚA 30-45 NGÀY: Lúa dừng đẻ nhánh, xé bẹ thấy nhú tim đèn 1-2mm. Giai đoạn này QUYẾT ĐỊNH 40% NĂNG SUẤT VỤ LÚA (phân hóa mầm hoa tạo nhánh gié).\n\n• CƠ CHẾ ZAKi RƯỚC ĐÒNG: Amino hữu cơ nuôi tim đèn mập ú, TĂNG TỪ 8-10 GIÉ LÊN 12-16 GIÉ PHỤ/BÔNG, bộ khung bông dài ngoẵng nhiều hạt.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Pha 25 - 35ml/bình 25L, ước lượng 1 lon pha 30 - 35 bình). Drone bay 3 ha.",
         "handling": "• CẢNH BÁO: Bỏ lỡ cử tim đèn bông lúa sẽ bị ngắn, ít hạt, thất thu 30% năng suất.\n\n• KHẲNG ĐỊNH: Pha chung êm 100% với thuốc sâu cuốn lá, rầy nâu, vi khuẩn không lo kết tủa."
       },
       {
         "step": "Bước 2",
         "stage": "Cử 3: Ôm Bắp / Rước Đòng Dứt Điểm\n\n(45 - 60 ngày tuổi)\n\n🌾 SP: ZAKi RƯỚC ĐÒNG 1L",
-        "guidance": "• SINH LÝ LÚA 45-60 NGÀY: Đòng tròn no bắp chuẩn bị trổ (trước trổ 7-10 ngày). Gặp nắng gắt/mưa dầm rất dễ bị thui mầm hạt, nghẹn đòng, trổ lẹt đẹt.\n\n• CƠ CHẾ ZAKi RƯỚC ĐÒNG: Dưỡng mọng bắp đòng, tăng sức sống hạt phấn, TĂNG TỪ 130 HẠT LÊN 180-220 HẠT CHẮC/BÔNG, rước đòng dứt điểm trổ thoát nhanh.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Quy chuẩn 1 bình 25L / 1 công 1.000m² -> Pha 33ml/bình 25L, 1 lon pha 30 bình). Drone bay 3 ha.",
+        "guidance": "• SINH LÝ LÚA 45-60 NGÀY: Đòng tròn no bắp chuẩn bị trổ (trước trổ 7-10 ngày). Gặp nắng gắt/mưa dầm rất dễ bị thui mầm hạt, nghẹn đòng, trổ lẹt đẹt.\n\n• CƠ CHẾ ZAKi RƯỚC ĐÒNG: Dưỡng mọng bắp đòng, tăng sức sống hạt phấn, TĂNG TỪ 130 HẠT LÊN 180-220 HẠT CHẮC/BÔNG, rước đòng dứt điểm trổ thoát nhanh.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Pha 25 - 35ml/bình 25L, ước lượng 1 lon pha 30 - 35 bình). Drone bay 3 ha.",
         "handling": "• HƯỚNG BỘ COMBO: Còn 3 cử (1 Rước đòng + 2 Vô gạo) -> Chốt Bộ Mua 3 Tặng 1 (1 Rước Đòng + 3 Vô Gạo = 4 lon 1L) xài tới gặt."
       },
       {
         "step": "Bước 2",
         "stage": "Cử 4: Trổ Sẹt / Lẹt Đẹt 5-10%\n\n(60 - 70 ngày tuổi)\n\n🌾 SP: ZAKi VÔ GẠO 1L",
-        "guidance": "• SINH LÝ LÚA 60-70 NGÀY: Bông mới nhú 5-10% lẹt đẹt khỏi bẹ bao. Rất dễ bị đứng bông, nghẹn bông, cháy nhụy nếu xịt phân hóa học / thuốc trừ bệnh dạng nhũ dầu (EC) nóng.\n\n• CƠ CHẾ ZAKi VÔ GẠO: Gel sữa Hữu cơ mát 100%, bôi trơn bẹ bao giúp lúa trổ thoát nhanh 100%, trổ rộ đồng loạt, giữ xanh 3 lá đòng.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Quy chuẩn 1 bình 25L / 1 công 1.000m² -> Pha 33ml/bình 25L, 1 lon pha 30 bình). Drone bay 3 ha.",
+        "guidance": "• SINH LÝ LÚA 60-70 NGÀY: Bông mới nhú 5-10% lẹt đẹt khỏi bẹ bao. Rất dễ bị đứng bông, nghẹn bông, cháy nhụy nếu xịt phân hóa học / thuốc trừ bệnh dạng nhũ dầu (EC) nóng.\n\n• CƠ CHẾ ZAKi VÔ GẠO: Gel sữa Hữu cơ mát 100%, bôi trơn bẹ bao giúp lúa trổ thoát nhanh 100%, trổ rộ đồng loạt, giữ xanh 3 lá đòng.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Pha 25 - 35ml/bình 25L, ước lượng 1 lon pha 30 - 35 bình). Drone bay 3 ha.",
         "handling": "• NHẤN MẠNH: Dạng Gel sữa hữu cơ mát 100%, tuyệt đối không làm cháy nhụy hoa lúa đang trổ như thuốc hóa học."
       },
       {
         "step": "Bước 2",
         "stage": "Cử 5: Trổ Đều / Ngửa Bụng Vô Sữa\n\n(70 - 80 ngày tuổi)\n\n🌾 SP: ZAKi VÔ GẠO 1L",
-        "guidance": "• SINH LÝ LÚA 70-80 NGÀY: Lúa trổ đều 90-100%, thụ phấn xong ngửa bụng vô sữa. Dễ bị lép hạt sát cổ bông (lép cậy) nếu lá đòng bị vàng rụi sớm.\n\n• CƠ CHẾ ZAKi VÔ GẠO: Kali lỏng nano dồn dịch sữa xối xả vào phôi hạt, ép tinh bột nén chặt CHẮC HẠT TỚI CẬY 100%, giữ xanh bền 3 lá đòng.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Quy chuẩn 1 bình 25L / 1 công 1.000m² -> Pha 33ml/bình 25L, 1 lon pha 30 bình). Drone bay 3 ha.",
+        "guidance": "• SINH LÝ LÚA 70-80 NGÀY: Lúa trổ đều 90-100%, thụ phấn xong ngửa bụng vô sữa. Dễ bị lép hạt sát cổ bông (lép cậy) nếu lá đòng bị vàng rụi sớm.\n\n• CƠ CHẾ ZAKi VÔ GẠO: Kali lỏng nano dồn dịch sữa xối xả vào phôi hạt, ép tinh bột nén chặt CHẮC HẠT TỚI CẬY 100%, giữ xanh bền 3 lá đòng.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Pha 25 - 35ml/bình 25L, ước lượng 1 lon pha 30 - 35 bình). Drone bay 3 ha.",
         "handling": "• XOÁY NỖI ĐAU: Lép cậy sát cổ bông làm mất 15-20% trọng lượng khi cân lúa.\n\n• HƯỚNG BỘ: Chốt 3 lon Vô Gạo Mua 3 Tặng 1 để dằn 2 cử ngậm sữa & đỏ đuôi."
       },
       {
         "step": "Bước 2",
         "stage": "Cử 6: Cong Trái Me / Đỏ Đuôi\n\n(80 ngày - Gặt)\n\n🌾 SP: ZAKi VÔ GẠO 1L",
-        "guidance": "• SINH LÝ LÚA 80 NGÀY-GẶT: Bông lúa quằn hình trái me, hạt đông cứng chuyển màu chín vàng. Rất dễ bị ngót ký khi phơi sấy nếu chất gạo xốp.\n\n• CƠ CHẾ ZAKi VÔ GẠO: Cô đặc tinh bột gạo, nén chất gạo no tròn căng mẩy (tăng 14% TGW), TĂNG 20% - 25% NĂNG SUẤT THU HOẠCH (đạt 1.300kg - 1.500kg/công 1.000m²), vỏ trấu vàng sáng bóng.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Quy chuẩn 1 bình 25L / 1 công 1.000m² -> Pha 33ml/bình 25L, 1 lon pha 30 bình). Drone bay 3 ha.",
+        "guidance": "• SINH LÝ LÚA 80 NGÀY-GẶT: Bông lúa quằn hình trái me, hạt đông cứng chuyển màu chín vàng. Rất dễ bị ngót ký khi phơi sấy nếu chất gạo xốp.\n\n• CƠ CHẾ ZAKi VÔ GẠO: Cô đặc tinh bột gạo, nén chất gạo no tròn căng mẩy (tăng 14% TGW), TĂNG 20% - 25% NĂNG SUẤT THU HOẠCH (đạt 1.300kg - 1.500kg/công 1.000m²), vỏ trấu vàng sáng bóng.\n\n• LIỀU DÙNG: 1 lon 1L xịt 30 công 1.000m² ~ 3 ha (Pha 25 - 35ml/bình 25L, ước lượng 1 lon pha 30 - 35 bình). Drone bay 3 ha.",
         "handling": "• HƯỚNG BỘ: Chốt gói Mua 3 Tặng 1 vừa dằn cử cuối vừa để dành xịt sớm cho vụ sau."
       },
       {
@@ -577,7 +577,7 @@ const AGRIZEN_DATA = {
           "image": "assets/images/stage1.jpg",
           "yieldGoal": "Kích chùm rễ cám bung trắng đâm sâu dán chặt đất, dập phèn chua và giải độc rơm rạ mục, tạo đà đẻ nhánh sớm.",
           "nutrientNeed": "• Cần nguồn Kiềm sinh học tự nhiên: Kéo pH đất từ 3.5 - 4.5 lên 5.5 - 6.5 để rễ non không thối chóp, giải phóng Lân bị khóa.\n• Cần Axit Fulvic & Hữu cơ mùn Biochar Mỹ: Khử độc tố khí ngạt (H2S, CH4) do rơm rạ mục, kích rễ tơ bung trắng phau sau 24h.",
-          "prescription": "🧪 PH14 (Cải Tạo Đất Nâng pH) - Lon Thiếc 1L\n• Liều pha: 1 Lon 1L pha 1.000 – 1.500 Lít nước phun phủ cho 1 ha (10 công 1.000m²).",
+          "prescription": "🌾 ZAKi RƯỚC ĐÒNG (Lon Thiếc 1L) - Cử 1\n• Liều pha: 25 - 35ml / bình 25L (Ước lượng 1 Lon 1L pha 30 - 35 bình xịt 30 công ~ 3 ha | Drone: 1L/3 ha).",
           "yieldResult": "Mạ non bén rễ hồi xanh sau 3 ngày, rễ cắm sâu hút 100% phân bón lót, cây đanh cứng, ngắt hoàn toàn hiện tượng vàng lá nghẹt rễ."
         },
         {
@@ -589,7 +589,7 @@ const AGRIZEN_DATA = {
           "image": "assets/images/stage2.jpg",
           "yieldGoal": "Tối đa hóa số chồi hữu hiệu mang bông, triệt tiêu chồi vô hiệu, cọng lúa mập ú bóp không dẹp, bụi lúa nở to đùng.",
           "nutrientNeed": "• Cần Axit Fulvic 18% & Amino Acid 40% tinh khiết Mỹ: Hấp thu qua lá sau 2 giờ, nuôi chồi con to mập ngang ngửa chồi mẹ.\n• Cần Lân Dễ Tiêu + Kẽm (Zn) Chelate: Thúc đẩy bộ rễ ăn sâu, kích hoạt quang hợp mạnh, giữ màu xanh mạ tre dầy lá không vống mềm.",
-          "prescription": "🌾 ZAKi RƯỚC ĐÒNG (Lon Thiếc 1L) - Cử 1\n• Liều pha: 25 - 50ml / bình 25L (1 Lon 1L xịt 30 công (1.000m²) ~ 3 ha | Drone: 0.5L/ha).",
+          "prescription": "🌾 ZAKi RƯỚC ĐÒNG (Lon 1L) + Gói Mix Combi Ba Lan 25g - Cử 2\n• Liều pha: 1 Lon ZAKi + 1 gói Mix Combi pha 30 - 35 bình 25L (Pha 25 - 35ml/bình, tổng 30 công ~ 3 ha).",
           "yieldResult": "Bụi lúa nở to đùng, tăng 30% số chồi hữu hiệu, cọng lúa mập đanh chắc, tiết kiệm 30-40% phân NPK rải gốc."
         },
         {
@@ -601,7 +601,7 @@ const AGRIZEN_DATA = {
           "image": "assets/images/stage3.jpg",
           "yieldGoal": "Quyết định 40% năng suất cả vụ: Nuôi tim đèn mập ú, phân hóa tối đa số gié phụ, tăng số hạt trên bông từ 130 lên 180 - 220 hạt.",
           "nutrientNeed": "• Cần Lân Dễ Tiêu + Amino lỏng nuôi đòng: Cung cấp năng lượng phân chia tế bào mầm hoa, kéo dài trục bông lúa.\n• Cần Bo siêu hòa tan & Kẽm Chelate Ba Lan: Tăng sức sống hạt phấn, dẻo dai cuống bông, giữ 3 lá đòng đứng thẳng xanh dày như lá tre.",
-          "prescription": "🌾 ZAKi RƯỚC ĐÒNG (Lon 1L) + Gói Mix Combi Ba Lan 25g - Cử 2 & Cử 3\n• Liều pha: 1 Lon ZAKi + 1 gói Mix Combi pha 30 bình 25L (xịt 30 công (1.000m²) ~ 3 ha).",
+          "prescription": "🌾 ZAKi RƯỚC ĐÒNG (Lon 1L) + Gói Mix Combi Ba Lan 25g - Cử 3\n• Liều pha: 1 Lon ZAKi + 1 gói Mix Combi pha 30 - 35 bình 25L (Pha 25 - 35ml/bình, tổng 30 công ~ 3 ha).",
           "yieldResult": "Tim đèn bộc phát mập ú, tăng 35-40% số gié (từ 8-10 gié lên 12-16 gié phụ), bông lúa nhiều hạt, rước đòng dứt điểm trổ thoát nhanh."
         },
         {
@@ -613,7 +613,7 @@ const AGRIZEN_DATA = {
           "image": "assets/images/stage4.jpg",
           "yieldGoal": "Trổ thoát nhanh 100% không nghẹn bông, thụ phấn đồng loạt, nén sữa xối xả vào hạt sát cổ bông (chống lép cậy 100%).",
           "nutrientNeed": "• Cần Lân 32.5% ATP & Kali Sữa 23.5% Lỏng Nano: Bôi trơn bẹ bao giúp lúa trổ rộ, vận chuyển dòng dịch đường bột dồn dập vào phôi hạt.\n• Cần chất bám dính Silicon hữu cơ: Trải đều màng dưỡng chất, không lo nắng rụi lá và chống mưa rửa trôi sau 15 phút.",
-          "prescription": "🌾 ZAKi VÔ GẠO (Lon 1L) + Siêu Loang Trải Luke 100ml - Cử 4 & Cử 5\n• Liều pha: 1 Lon ZAKi Vô Gạo + 1 chai Luke pha xịt cho 30 công (1.000m²) ~ 3 ha.",
+          "prescription": "🌾 ZAKi VÔ GẠO (Lon 1L) + Siêu Loang Trải Luke 100ml - Cử 4\n• Liều pha: 1 Lon ZAKi Vô Gạo + 1 chai Luke pha 30 - 35 bình 25L (Pha 25 - 35ml/bình, tổng 30 công ~ 3 ha).",
           "yieldResult": "Gel sữa mát 100% không nóng cháy nhụy hoa, lúa trổ rộ đều khắp ruộng, dịch sữa lấp đầy hạt cậy no tròn, giữ xanh 3 lá đòng."
         },
         {
@@ -625,7 +625,7 @@ const AGRIZEN_DATA = {
           "image": "assets/images/stage5.jpg",
           "yieldGoal": "Nén cứng dặt cơm gạo, tăng trọng lượng 1.000 hạt (TGW +14%), vỏ trấu vàng sáng bóng, phơi sấy không bị ngót ký.",
           "nutrientNeed": "• Cần Kali Sữa hữu cơ chuyên sâu + Kẽm & Silicon: Cô đặc tinh bột gạo giai đoạn ngậm sữa đặc đến chín sáp, khép kín vỏ trấu.\n• Tuyệt đối không đưa đạm hóa học muộn: Ngăn ngừa tình trạng xanh vỏ đỏ lòng, hạt lúa chắc nịch không bị xốp.",
-          "prescription": "🌾 ZAKi VÔ GẠO (Lon 1L) - Cử 6 Dằn Cử Cuối (Trước gặt 10 - 12 ngày)\n• Liều pha: 25 - 50ml / bình 25L (1 Lon 1L xịt 30 công (1.000m²) ~ 3 ha).",
+          "prescription": "🌾 ZAKi VÔ GẠO (Lon 1L) + Siêu Loang Trải Luke 100ml - Cử 5\n• Liều pha: 1 Lon ZAKi Vô Gạo + 1 chai Luke pha 30 - 35 bình 25L (Pha 25 - 35ml/bình, tổng 30 công ~ 3 ha).",
           "yieldResult": "Hạt gạo no tròn căng mẩy, tổng năng suất đạt 1.300kg – 1.500kg lúa tươi / công 1.000m² (1.3 - 1.5 Tấn / công 1.000m² ~ 13 - 15 Tấn/ha), vỏ trấu vàng óng, bán được giá cao."
         }
       ]
