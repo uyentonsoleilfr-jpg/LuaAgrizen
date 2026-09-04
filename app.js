@@ -1287,12 +1287,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    if (typeof ZAKI_VOUCHER_TEMPLATES !== 'undefined') {
-      vImgFront.onload = () => { vImagesLoaded++; checkReadyAndDraw(); };
-      vImgBack.onload = () => { vImagesLoaded++; checkReadyAndDraw(); };
-      vImgFront.src = ZAKI_VOUCHER_TEMPLATES.front;
-      vImgBack.src = ZAKI_VOUCHER_TEMPLATES.back;
-    }
+    vImgFront.onload = () => { vImagesLoaded++; checkReadyAndDraw(); };
+    vImgBack.onload = () => { vImagesLoaded++; checkReadyAndDraw(); };
+    vImgFront.src = 'assets/voucher_front.png';
+    vImgBack.src = 'assets/voucher_back.png';
 
     const drawVoucher = () => {
       if (vImagesLoaded < 2) return;
