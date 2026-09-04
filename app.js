@@ -101,7 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pageCropDict) pageCropDict.style.display = pageId === 'crop-dict' ? 'block' : 'none';
     if (pageRiceVarieties) pageRiceVarieties.style.display = pageId === 'rice-varieties' ? 'block' : 'none';
     if (pageCropTypes) pageCropTypes.style.display = pageId === 'crop-types' ? 'block' : 'none';
-    if (pageVoucherGenerator) pageVoucherGenerator.style.display = pageId === 'voucher-generator' ? 'block' : 'none';
+    if (pageVoucherGenerator) {
+      pageVoucherGenerator.style.display = pageId === 'voucher-generator' ? 'block' : 'none';
+      if (pageId === 'voucher-generator') {
+        renderVoucherGenerator();
+      }
+    }
 
     // Close Mobile Drawer if open
     if (appSidebar.classList.contains('open')) {
