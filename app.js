@@ -1195,6 +1195,230 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!pageVoucherGenerator) return;
 
     pageVoucherGenerator.innerHTML = `
+      <style>
+        .voucher-tool-container {
+          display: grid;
+          grid-template-columns: 380px 1fr;
+          gap: 20px;
+          align-items: start;
+        }
+        @media (max-width: 950px) {
+          .voucher-tool-container {
+            grid-template-columns: 1fr;
+          }
+        }
+        .voucher-form-card, .voucher-preview-card {
+          background: #ffffff;
+          border: 1px solid #ccd9c7;
+          border-radius: 14px;
+          padding: 20px;
+          box-shadow: 0 4px 16px rgba(15, 56, 30, 0.06);
+        }
+        .voucher-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 2px solid #d8f1e1;
+          padding-bottom: 12px;
+          margin-bottom: 16px;
+        }
+        .voucher-card-header h3 {
+          font-size: 15px;
+          font-weight: 800;
+          color: #0f381e;
+          margin: 0;
+        }
+        .voucher-badge {
+          background: #fef08a;
+          color: #713f12;
+          font-size: 11px;
+          font-weight: 800;
+          padding: 3px 8px;
+          border-radius: 6px;
+          text-transform: uppercase;
+        }
+        .v-form-group {
+          margin-bottom: 14px;
+        }
+        .v-form-group label {
+          display: block;
+          font-size: 12px;
+          font-weight: 700;
+          color: #2d4232;
+          margin-bottom: 6px;
+        }
+        .v-form-group input[type="text"] {
+          width: 100%;
+          padding: 10px 12px;
+          border: 1.5px solid #ccd9c7;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #0a180d;
+          background: #ffffff;
+          outline: none;
+          transition: all 0.2s;
+        }
+        .v-form-group input[type="text"]:focus {
+          border-color: #2e9451;
+          box-shadow: 0 0 0 3px #d8f1e1;
+        }
+        .v-quick-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 6px;
+        }
+        .v-chip {
+          background: #edf8f1;
+          border: 1px solid #bde4ca;
+          color: #1b5e32;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 4px 8px;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.15s;
+          user-select: none;
+        }
+        .v-chip:hover {
+          background: #d8f1e1;
+          border-color: #3db365;
+          transform: translateY(-1px);
+        }
+        .voucher-tab-bar {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-bottom: 14px;
+        }
+        .v-tab-btn {
+          padding: 8px 14px;
+          font-size: 13px;
+          font-weight: 700;
+          border: 1px solid #ccd9c7;
+          background: #edf3e9;
+          color: #2d4232;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .v-tab-btn.active {
+          background: #237841;
+          color: #ffffff;
+          border-color: #1b5e32;
+          box-shadow: 0 2px 8px rgba(27, 94, 50, 0.2);
+        }
+        .v-ratio-label {
+          margin-left: auto;
+          font-size: 12px;
+          font-weight: 700;
+          color: #4a6350;
+        }
+        .v-canvas-wrapper {
+          background: #142318;
+          padding: 16px;
+          border-radius: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 280px;
+          overflow: hidden;
+          box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .v-canvas-wrapper canvas {
+          max-width: 100% !important;
+          height: auto !important;
+          border-radius: 6px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+          display: block;
+        }
+        .v-action-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-top: 14px;
+        }
+        @media (max-width: 600px) {
+          .v-action-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .v-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 12px 16px;
+          font-size: 13px;
+          font-weight: 700;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s;
+          user-select: none;
+        }
+        .v-btn-reset {
+          width: 100%;
+          background: #ffffff;
+          color: #2d4232;
+          border: 1.5px solid #b3c5ad;
+          margin-top: 6px;
+        }
+        .v-btn-reset:hover {
+          background: #e1ecdc;
+        }
+        .v-btn-copy {
+          background: #0284c7;
+          color: #ffffff;
+          box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+        }
+        .v-btn-copy:hover {
+          background: #0369a1;
+          transform: translateY(-1px);
+        }
+        .v-btn-download {
+          background: #237841;
+          color: #ffffff;
+          box-shadow: 0 3px 10px rgba(27, 94, 50, 0.25);
+        }
+        .v-btn-download:hover {
+          background: #1b5e32;
+          transform: translateY(-1px);
+        }
+        .v-btn-combined {
+          grid-column: 1 / -1;
+          background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+          color: #ffffff;
+          box-shadow: 0 4px 12px rgba(180, 83, 9, 0.25);
+        }
+        .v-btn-combined:hover {
+          transform: translateY(-1px);
+        }
+        .v-toast {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          background: #0f2918;
+          color: #ffffff;
+          padding: 14px 20px;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 600;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          border-left: 4px solid #3db365;
+          transform: translateY(120px);
+          opacity: 0;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+          z-index: 1000;
+        }
+        .v-toast.show {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      </style>
+
       <div class="voucher-tool-container">
         <!-- FORM BÊN TRÁI -->
         <div class="voucher-form-card">
