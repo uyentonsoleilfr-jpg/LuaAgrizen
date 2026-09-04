@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageCropDict = document.getElementById('page-crop-dict');
   const pageRiceVarieties = document.getElementById('page-rice-varieties');
   const pageCropTypes = document.getElementById('page-crop-types');
+  const pageVoucherGenerator = document.getElementById('page-voucher-generator');
 
   const productTabBar = document.getElementById('product-tab-bar');
   const productCardContainer = document.getElementById('product-card-container');
@@ -64,6 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'crop-types': {
       title: '9. LOẠI CÂY TRỒNG',
       desc: 'Cẩm nang tra cứu vấn đề thổ nhưỡng, độ pH đất lý tưởng, liều tưới pH 14 và lịch chăm sóc cho các nhóm cây trồng chủ lực'
+    },
+    'voucher-generator': {
+      title: '10. CÔNG CỤ TẠO PHIẾU CAM KẾT & BẢO HÀNH ĐIỆN TỬ',
+      desc: 'Nhập tên khách hàng và xuất ngay phiếu cam kết ZAKI chính hãng gửi Zalo trong 5 giây'
     }
   };
 
@@ -96,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pageCropDict) pageCropDict.style.display = pageId === 'crop-dict' ? 'block' : 'none';
     if (pageRiceVarieties) pageRiceVarieties.style.display = pageId === 'rice-varieties' ? 'block' : 'none';
     if (pageCropTypes) pageCropTypes.style.display = pageId === 'crop-types' ? 'block' : 'none';
+    if (pageVoucherGenerator) pageVoucherGenerator.style.display = pageId === 'voucher-generator' ? 'block' : 'none';
 
     // Close Mobile Drawer if open
     if (appSidebar.classList.contains('open')) {
@@ -1172,6 +1178,291 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // =========================================================================
+  // PAGE 10: VOUCHER GENERATOR (TẠO PHIẾU CAM KẾT & BẢO HÀNH ĐIỆN TỬ)
+  // =========================================================================
+  let voucherCurrentTab = 'back';
+  let vImgFront = new Image();
+  let vImgBack = new Image();
+  let vImagesLoaded = 0;
+
+  const renderVoucherGenerator = () => {
+    if (!pageVoucherGenerator) return;
+
+    pageVoucherGenerator.innerHTML = `
+      <div class="voucher-tool-container">
+        <!-- FORM BÊN TRÁI -->
+        <div class="voucher-form-card">
+          <div class="voucher-card-header">
+            <h3>📝 NHẬP THÔNG TIN ĐƠN HÀNG</h3>
+            <span class="voucher-badge">Xuất phiếu 5s</span>
+          </div>
+
+          <div class="v-form-group">
+            <label>1. Tên Khách Hàng / Địa Chỉ</label>
+            <input type="text" id="vCustName" value="Chú Năm (Vĩnh Thuận, Kiên Giang)" placeholder="VD: Chú Bảy - An Giang">
+            <div class="v-quick-chips">
+              <span class="v-chip" data-val="Chú Ba (Thoại Sơn, An Giang)">Chú Ba (An Giang)</span>
+              <span class="v-chip" data-val="Anh Tư (Tân Hồng, Đồng Tháp)">Anh Tư (Đồng Tháp)</span>
+              <span class="v-chip" data-val="Chú Bảy (Hòn Đất, Kiên Giang)">Chú Bảy (Kiên Giang)</span>
+            </div>
+          </div>
+
+          <div class="v-form-group">
+            <label>2. Số Điện Thoại Khách</label>
+            <input type="text" id="vCustPhone" value="0918.765.432" placeholder="VD: 0912.345.678">
+          </div>
+
+          <div class="v-form-group">
+            <label>3. Sản Phẩm Khách Mua</label>
+            <input type="text" id="vCustProduct" value="Combo 3 Lon Rước Đòng + 1 Vô Gạo (Mỹ)" placeholder="VD: 2 Lon ZAKI Rước Đòng 1L">
+            <div class="v-quick-chips">
+              <span class="v-chip" data-prod="Combo 3 Rước Đòng + 1 Vô Gạo (Mỹ)">Combo 3+1</span>
+              <span class="v-chip" data-prod="Combo 2 Lon ZAKI Rước Đòng 1L (Mỹ)">2 Lon Rước Đòng</span>
+              <span class="v-chip" data-prod="Bộ 3 Lon ZAKI: pH14 + Rước Đòng + Vô Gạo">Bộ 3 Lon ZAKI</span>
+              <span class="v-chip" data-prod="Thùng 8 Lon ZAKI Rước Đòng 1L (Mỹ)">1 Thùng 8 Lon</span>
+            </div>
+          </div>
+
+          <div class="v-form-group">
+            <label>4. Ngày Xuất Phiếu / Sử Dụng</label>
+            <input type="text" id="vCustDate" value="04/09/2026">
+          </div>
+
+          <div class="v-form-group">
+            <label>5. Số Mã Bảo Hành (Serial)</label>
+            <input type="text" id="vCustSerial" value="ZK-2026-889" placeholder="ZK-2026-...">
+          </div>
+
+          <button class="v-btn v-btn-reset" id="vBtnReset">
+            🔄 Làm Mới / Đơn Kế Tiếp (Tạo Mã Mới)
+          </button>
+        </div>
+
+        <!-- KHU VỰC XEM TRƯỚC VÀ NÚT XUẤT ẢNH -->
+        <div class="voucher-preview-card">
+          <div class="voucher-tab-bar">
+            <button class="v-tab-btn active" id="vTabBack">📄 Mặt Sau (Có Tên)</button>
+            <button class="v-tab-btn" id="vTabFront">🌿 Mặt Trước (Cam Kết)</button>
+            <button class="v-tab-btn" id="vTabBoth">✨ Ghép Cả 2 Mặt</button>
+            <span class="v-ratio-label">Chuẩn In 15cm x 5.8cm (300 DPI)</span>
+          </div>
+
+          <div class="v-canvas-wrapper">
+            <canvas id="vCanvas"></canvas>
+          </div>
+
+          <div class="v-action-grid">
+            <button class="v-btn v-btn-copy" id="vBtnCopy">
+              📋 Sao Chép Ảnh (Dán Vào Zalo)
+            </button>
+            <button class="v-btn v-btn-download" id="vBtnDownload">
+              💾 Tải Ảnh Này Về Máy (PNG)
+            </button>
+            <button class="v-btn v-btn-combined" id="vBtnDownloadCombined">
+              🖼️ Tải Ảnh Ghép 2 Mặt Gửi Khách (Nét Nhất)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="vToast" class="v-toast">
+        ✅ Đã sao chép ảnh vào bộ nhớ tạm! Bạn chỉ cần nhấn <b>Ctrl + V</b> trong Zalo để gửi cho khách.
+      </div>
+    `;
+
+    // Canvas Logic
+    const canvas = document.getElementById('vCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const checkReadyAndDraw = () => {
+      if (vImagesLoaded >= 2) {
+        drawVoucher();
+      }
+    };
+
+    if (typeof ZAKI_VOUCHER_TEMPLATES !== 'undefined') {
+      vImgFront.onload = () => { vImagesLoaded++; checkReadyAndDraw(); };
+      vImgBack.onload = () => { vImagesLoaded++; checkReadyAndDraw(); };
+      vImgFront.src = ZAKI_VOUCHER_TEMPLATES.front;
+      vImgBack.src = ZAKI_VOUCHER_TEMPLATES.back;
+    }
+
+    const drawVoucher = () => {
+      if (vImagesLoaded < 2) return;
+
+      const name = document.getElementById('vCustName')?.value || '...........................................';
+      const phone = document.getElementById('vCustPhone')?.value || '...........................................';
+      const prod = document.getElementById('vCustProduct')?.value || '...........................................';
+      const date = document.getElementById('vCustDate')?.value || '.../.../2026';
+      const serial = document.getElementById('vCustSerial')?.value ? `(Mã: ${document.getElementById('vCustSerial').value})` : '';
+
+      const W = vImgBack.width;  // 1701
+      const H = vImgBack.height; // 657
+
+      if (voucherCurrentTab === 'front') {
+        canvas.width = W;
+        canvas.height = H;
+        ctx.drawImage(vImgFront, 0, 0);
+      } else if (voucherCurrentTab === 'back') {
+        canvas.width = W;
+        canvas.height = H;
+        ctx.drawImage(vImgBack, 0, 0);
+        drawTextOnCanvas(ctx, name, phone, prod, date, serial);
+      } else if (voucherCurrentTab === 'both') {
+        canvas.width = W;
+        canvas.height = H * 2 + 30;
+        ctx.fillStyle = '#E0E8E1';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Front
+        ctx.drawImage(vImgFront, 0, 0);
+
+        // Back
+        ctx.drawImage(vImgBack, 0, H + 30);
+        ctx.save();
+        ctx.translate(0, H + 30);
+        drawTextOnCanvas(ctx, name, phone, prod, date, serial);
+        ctx.restore();
+      }
+    };
+
+    const drawTextOnCanvas = (c, name, phone, prod, date, serial) => {
+      c.fillStyle = '#004D40'; // Deep emerald green
+      c.font = 'bold 30px "Be Vietnam Pro", "Segoe UI", sans-serif';
+      c.textBaseline = 'alphabetic';
+
+      // Line 1: Khách hàng (baseline y=446, start x=340)
+      c.fillText(name, 340, 446);
+
+      // Line 2: SĐT (baseline y=500)
+      c.fillText(phone, 340, 500);
+
+      // Line 3: Sản phẩm (baseline y=554)
+      c.font = '600 28px "Be Vietnam Pro", "Segoe UI", sans-serif';
+      c.fillText(prod, 340, 554);
+
+      // Line 4: Ngày sử dụng (baseline y=608)
+      c.fillText(`${date}  ${serial}`, 340, 608);
+    };
+
+    // Event Listeners for Live inputs
+    ['vCustName', 'vCustPhone', 'vCustProduct', 'vCustDate', 'vCustSerial'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', drawVoucher);
+    });
+
+    // Quick chips
+    pageVoucherGenerator.querySelectorAll('.v-chip[data-val]').forEach(ch => {
+      ch.addEventListener('click', (e) => {
+        const val = e.currentTarget.getAttribute('data-val');
+        const inp = document.getElementById('vCustName');
+        if (inp) { inp.value = val; drawVoucher(); }
+      });
+    });
+
+    pageVoucherGenerator.querySelectorAll('.v-chip[data-prod]').forEach(ch => {
+      ch.addEventListener('click', (e) => {
+        const val = e.currentTarget.getAttribute('data-prod');
+        const inp = document.getElementById('vCustProduct');
+        if (inp) { inp.value = val; drawVoucher(); }
+      });
+    });
+
+    // Tab Switchers
+    const setVoucherTab = (tab) => {
+      voucherCurrentTab = tab;
+      pageVoucherGenerator.querySelectorAll('.v-tab-btn').forEach(b => b.classList.remove('active'));
+      if (tab === 'back') document.getElementById('vTabBack')?.classList.add('active');
+      if (tab === 'front') document.getElementById('vTabFront')?.classList.add('active');
+      if (tab === 'both') document.getElementById('vTabBoth')?.classList.add('active');
+      drawVoucher();
+    };
+
+    document.getElementById('vTabBack')?.addEventListener('click', () => setVoucherTab('back'));
+    document.getElementById('vTabFront')?.addEventListener('click', () => setVoucherTab('front'));
+    document.getElementById('vTabBoth')?.addEventListener('click', () => setVoucherTab('both'));
+
+    // Reset next order
+    document.getElementById('vBtnReset')?.addEventListener('click', () => {
+      const nameInp = document.getElementById('vCustName');
+      const phoneInp = document.getElementById('vCustPhone');
+      const prodInp = document.getElementById('vCustProduct');
+      const dateInp = document.getElementById('vCustDate');
+      const serialInp = document.getElementById('vCustSerial');
+
+      if (nameInp) nameInp.value = '';
+      if (phoneInp) phoneInp.value = '';
+      if (prodInp) prodInp.value = 'Combo 3 Lon Rước Đòng + 1 Vô Gạo (Mỹ)';
+
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const y = now.getFullYear();
+      if (dateInp) dateInp.value = `${d}/${m}/${y}`;
+
+      const rand = Math.floor(100 + Math.random() * 900);
+      if (serialInp) serialInp.value = `ZK-2026-${rand}`;
+
+      if (nameInp) nameInp.focus();
+      drawVoucher();
+      showVoucherToast('Đã làm mới form và tạo Mã bảo hành mới!');
+    });
+
+    // Download Single View
+    document.getElementById('vBtnDownload')?.addEventListener('click', () => {
+      const name = document.getElementById('vCustName')?.value || 'ZAKI';
+      const cleanName = name.replace(/[^a-zA-Z0-9\s]/g, '').trim().replace(/\s+/g, '_');
+      const link = document.createElement('a');
+      link.download = `Phieu_Cam_Ket_ZAKI_${cleanName}_${voucherCurrentTab}.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+      showVoucherToast('Đang tải ảnh xuống máy...');
+    });
+
+    // Download Combined 2 Sides
+    document.getElementById('vBtnDownloadCombined')?.addEventListener('click', () => {
+      const prevTab = voucherCurrentTab;
+      voucherCurrentTab = 'both';
+      drawVoucher();
+      const name = document.getElementById('vCustName')?.value || 'ZAKI';
+      const cleanName = name.replace(/[^a-zA-Z0-9\s]/g, '').trim().replace(/\s+/g, '_');
+      const link = document.createElement('a');
+      link.download = `Phieu_Bao_Hanh_ZAKI_2Mat_${cleanName}.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+      voucherCurrentTab = prevTab;
+      drawVoucher();
+      showVoucherToast('Đã tải ảnh ghép 2 mặt gửi khách!');
+    });
+
+    // Copy to Clipboard
+    document.getElementById('vBtnCopy')?.addEventListener('click', async () => {
+      try {
+        canvas.toBlob(async (blob) => {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': blob })
+          ]);
+          showVoucherToast('✅ Đã sao chép ảnh! Nhấn Ctrl + V vào Zalo để gửi cho khách.');
+        });
+      } catch (err) {
+        document.getElementById('vBtnDownload')?.click();
+      }
+    });
+
+    const showVoucherToast = (msg) => {
+      const t = document.getElementById('vToast');
+      if (!t) return;
+      t.innerHTML = msg;
+      t.classList.add('show');
+      setTimeout(() => { t.classList.remove('show'); }, 3500);
+    };
+
+    // Initial check & draw
+    checkReadyAndDraw();
+  };
+
   // Sidebar Nav Button Listeners
   document.querySelectorAll('.nav-item-btn[data-page]').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -1200,4 +1491,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCropDict();
   renderRiceVarieties();
   renderCropTypes();
+  renderVoucherGenerator();
 });
